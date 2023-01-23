@@ -5,6 +5,7 @@ import { BooksComponent } from './pages/books/books.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { UsersComponent } from './pages/users/users.component';
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'sign-up',
     component: SignUpComponent
+  },
+  {
+    path: 'unauthorized',
+    component: UnauthorizedComponent
   },
   {
     path: 'books',
