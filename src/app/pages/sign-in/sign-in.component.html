@@ -1,0 +1,13 @@
+<section id="main-content">
+    <form class="login-form round-bordered-subject" autoComplete="on" (ngSubmit)="onSubmit()">
+        <input type="text" id="login" name="login" [(ngModel)]="signInObj.login" placeholder="Login" required />
+        <input type="password" id="password" name="password" [(ngModel)]="signInObj.password" placeholder="Password"
+            required />
+        <button type="submit">
+            Sign In
+        </button>
+        <a href="/sign-up">
+            <button type="button">Sign Up</button>
+        </a>
+    </form>
+</section>
