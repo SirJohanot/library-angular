@@ -25,6 +25,7 @@ export class SignInComponent {
     this.http.get<UserRoles>('/users/auth', { observe: 'response' })
       .pipe(
         catchError((error) => {
+          this.authService.resetAuthentication();
           switch (error.status) {
             case 400:
               this.error = 'Missing login or password';
