@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
+import { catchError, map, NEVER } from 'rxjs';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserRoles } from 'src/app/UserRoles';
 
 @Injectable({
   providedIn: "root"
@@ -11,14 +14,35 @@ import { Component, Injectable } from '@angular/core';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent {
-  signInObj: any = {
-    login: '',
-    password: ''
-  }
+  login: string = '';
+  password: string = '';
+  error: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
   onSubmit(): void {
-    console.log("submitted");
+    this.authService.setAuthentication(this.login, this.password);
+    this.http.get<UserRoles>('/users/auth', { observe: 'response' })
+      .pipe(
+        catchError((error) => {
+          switch (error.status) {
+            case 400:
+              this.error = 'Missing login or password';
+              break;
+            case 401:
+              this.error = 'Invalid credentials';
+              break;
+            default:
+              this.error = 'Authentication failed';
+          }
+          return NEVER;
+        }),
+        map((response) => response.body)
+      )
+      .subscribe(userRoles => this.authService.setAuthentication(this.login, this.password, userRoles?.roles));
+  }
+
+  clearError(): void {
+    this.error = '';
   }
 }

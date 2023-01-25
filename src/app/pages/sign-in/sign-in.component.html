@@ -1,8 +1,10 @@
 <section id="main-content">
     <form class="login-form round-bordered-subject" autoComplete="on" (ngSubmit)="onSubmit()">
-        <input type="text" id="login" name="login" [(ngModel)]="signInObj.login" placeholder="Login" required />
-        <input type="password" id="password" name="password" [(ngModel)]="signInObj.password" placeholder="Password"
-            required />
+        <input type="text" id="login" name="login" [(ngModel)]="login" (ngModelChange)="clearError()"
+            placeholder="Login" required />
+        <input type="password" id="password" name="password" [(ngModel)]="password" (ngModelChange)="clearError()"
+            placeholder="Password" required />
+        <div class="error-message" *ngIf="error">{{error}}</div>
         <button type="submit">
             Sign In
         </button>
