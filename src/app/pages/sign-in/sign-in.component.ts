@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, map, NEVER } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserRoles } from 'src/app/UserRoles';
@@ -17,8 +18,11 @@ export class SignInComponent {
   login: string = '';
   password: string = '';
   error: string = '';
+  returnUrl: string = '';
 
-  constructor(private http: HttpClient, private authService: AuthenticationService) { }
+  constructor(private http: HttpClient, private authService: AuthenticationService, private route: ActivatedRoute, private router: Router) {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
 
   onSubmit(): void {
     this.authService.setAuthentication(this.login, this.password);
@@ -40,7 +44,10 @@ export class SignInComponent {
         }),
         map((response) => response.body)
       )
-      .subscribe(userRoles => this.authService.setAuthentication(this.login, this.password, userRoles?.roles));
+      .subscribe(userRoles => {
+        this.authService.setAuthentication(this.login, this.password, userRoles?.roles);
+        this.router.navigate([this.returnUrl]);
+      });
   }
 
   clearError(): void {
