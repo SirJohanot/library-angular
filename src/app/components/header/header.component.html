@@ -1,7 +1,7 @@
 <header>
     <div class="container">
         <img src="/assets/white_book_symbol.png" alt="Book symbol" />
-        <h1>Library</h1>
+        <h1>{{'appName' | language:languageService.currentLanguage}}</h1>
         <h1 class="right-header-buttons">
             <div class="sign-out-button">
                 <button type="button" (click)="handleSignOut()">
@@ -13,9 +13,12 @@
                     <img src="/assets/white_globe_symbol.png" alt="Globe symbol" />
                 </button>
                 <div class="dropdown-content">
-                    <button type="button">EN</button>
-                    <button type="button">RU</button>
-                    <button type="button">BY</button>
+                    <button type="button" (click)="handleLanguageChange('ENGLISH')">{{'englishCode' |
+                        language:languageService.currentLanguage}}</button>
+                    <button type="button" (click)="handleLanguageChange('RUSSIAN')">{{'russianCode' |
+                        language:languageService.currentLanguage}}</button>
+                    <button type="button" (click)="handleLanguageChange('BELARUSIAN')">{{'belarusianCode' |
+                        language:languageService.currentLanguage}}</button>
                 </div>
             </div>
         </h1>
