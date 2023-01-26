@@ -3,6 +3,7 @@ import { Component, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, map, NEVER } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { LanguageService } from 'src/app/services/language.service';
 import { UserRoles } from 'src/app/UserRoles';
 
 @Injectable({
@@ -20,7 +21,12 @@ export class SignInComponent {
   error: string = '';
   returnUrl: string = '';
 
-  constructor(private http: HttpClient, private authService: AuthenticationService, private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private http: HttpClient,
+    private authService: AuthenticationService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public languageService: LanguageService) {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
