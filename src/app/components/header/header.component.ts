@@ -10,7 +10,7 @@ import { LanguageService } from 'src/app/services/language.service';
 })
 export class HeaderComponent {
 
-  constructor(private authService: AuthenticationService,
+  constructor(public authService: AuthenticationService,
     private router: Router,
     public languageService: LanguageService
   ) { }
