@@ -19,9 +19,7 @@ export class AuthenticationGuard implements CanActivate {
     }
 
     const expectedRoles = route.data['expectedRoles'];
-    const authenticationRoles = this.authService.getRoles();
-    const authContainsOneOfTheExpectedRoles = !!(authenticationRoles?.find((role) => expectedRoles?.includes(role)));
-    if (!authContainsOneOfTheExpectedRoles) {
+    if (!this.authService.hasOneOfRoles(expectedRoles)) {
       this.router.navigate(['/unauthorized']);
       return false;
     }

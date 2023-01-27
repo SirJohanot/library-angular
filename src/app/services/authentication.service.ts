@@ -9,20 +9,20 @@ const rolesKey = "roles";
 })
 export class AuthenticationService {
 
-  public getLogin(): string | null {
+  getLogin(): string | null {
     return localStorage.getItem(loginKey);
   }
 
-  public getPassword(): string | null {
+  getPassword(): string | null {
     return localStorage.getItem(passwordKey);
   }
 
-  public getRoles(): string[] | undefined {
+  getRoles(): string[] | undefined {
     return localStorage.getItem(rolesKey)
       ?.split(",");
   }
 
-  public setAuthentication(login: string, password: string, roles?: string[]): void {
+  setAuthentication(login: string, password: string, roles?: string[]): void {
     localStorage.setItem(loginKey, login);
     localStorage.setItem(passwordKey, password);
     if (roles) {
@@ -30,16 +30,22 @@ export class AuthenticationService {
     }
   }
 
-  public resetAuthentication(): void {
+  resetAuthentication(): void {
     localStorage.removeItem(loginKey);
     localStorage.removeItem(passwordKey);
     localStorage.removeItem(rolesKey);
   }
 
-  public isAuthenticated(): boolean {
+  isAuthenticated(): boolean {
     const login = localStorage.getItem(loginKey);
     const password = localStorage.getItem(passwordKey);
     const roles = localStorage.getItem(rolesKey);
     return !!(login && password && roles);
   }
+
+  hasOneOfRoles(expectedRoles: string[]): boolean {
+    const authenticationRoles = this.getRoles();
+    return !!(authenticationRoles?.find((role) => expectedRoles?.includes(role)));
+  }
+
 }

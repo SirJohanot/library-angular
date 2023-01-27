@@ -18,6 +18,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { UsersComponent } from './pages/users/users.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LanguagePipe } from './pipes/language.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomeComponent } from './pages/home/home.component';
     AddBookComponent,
     UsersComponent,
     UnauthorizedComponent,
-    HomeComponent
+    HomeComponent,
+    LanguagePipe
   ],
   imports: [
     BrowserModule,
