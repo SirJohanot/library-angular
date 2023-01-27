@@ -1,17 +1,23 @@
-<nav>
+<nav *ngIf="this.authenticationService.isAuthenticated()">
     <a routerLink="/books">
         <button>{{'books' | language:languageService.currentLanguage}}</button>
     </a>
-    <a routerLink="/orders">
-        <button>{{'myOrders' | language:languageService.currentLanguage}}</button>
-    </a>
-    <a routerLink="/orders">
-        <button>{{'orders' | language:languageService.currentLanguage}}</button>
-    </a>
-    <a routerLink="/add-book">
-        <button>{{'addABook' | language:languageService.currentLanguage}}</button>
-    </a>
-    <a routerLink="/users">
-        <button>{{'users' | language:languageService.currentLanguage}}</button>
-    </a>
+    <ng-container *ngIf="this.authenticationService.hasOneOfRoles(['READER'])">
+        <a routerLink="/orders">
+            <button>{{'myOrders' | language:languageService.currentLanguage}}</button>
+        </a>
+    </ng-container>
+    <ng-container *ngIf="this.authenticationService.hasOneOfRoles(['LIBRARIAN'])">
+        <a routerLink="/orders">
+            <button>{{'orders' | language:languageService.currentLanguage}}</button>
+        </a>
+    </ng-container>
+    <ng-container *ngIf="this.authenticationService.hasOneOfRoles(['ADMIN'])">
+        <a routerLink="/add-book">
+            <button>{{'addABook' | language:languageService.currentLanguage}}</button>
+        </a>
+        <a routerLink="/users">
+            <button>{{'users' | language:languageService.currentLanguage}}</button>
+        </a>
+    </ng-container>
 </nav>
