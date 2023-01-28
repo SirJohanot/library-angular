@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Book } from 'src/app/Book';
+import { Book } from 'src/app/interfaces/Book';
 import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
