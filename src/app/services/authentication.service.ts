@@ -43,6 +43,12 @@ export class AuthenticationService {
     return !!(login && password && roles);
   }
 
+  hasAuthentication(): boolean {
+    const login = localStorage.getItem(loginKey);
+    const password = localStorage.getItem(passwordKey);
+    return !!(login && password);
+  }
+
   hasOneOfRoles(expectedRoles: string[]): boolean {
     const authenticationRoles = this.getRoles();
     return !!(authenticationRoles?.find((role) => expectedRoles?.includes(role)));
