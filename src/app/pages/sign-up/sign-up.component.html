@@ -1,1 +1,19 @@
-<p>sign-up works!</p>
+<section id="main-content">
+    <form class="login-form round-bordered-subject" autoComplete="on" (ngSubmit)="handleSubmit()">
+        <input type="text" id="login" name="login" [(ngModel)]="login" (ngModelChange)="clearError()"
+            placeholder="{{'loginLocale' | language:languageService.currentLanguage}}" required />
+        <input type="password" id="password" name="password" [(ngModel)]="password" (ngModelChange)="clearError()"
+            placeholder="{{'passwordLocale' | language:languageService.currentLanguage}}" required />
+        <input type="password" id="confirmed-password" name="confirmed-password" [(ngModel)]="confirmedPassword"
+            (ngModelChange)="clearError()"
+            placeholder="{{'confirmPassword' | language:languageService.currentLanguage}}" required />
+        <input type="text" id="first-name" name="first-name" [(ngModel)]="firstName" (ngModelChange)="clearError()"
+            placeholder="{{'firstName' | language:languageService.currentLanguage}}" required />
+        <input type="text" id="last-name" name="last-name" [(ngModel)]=" lastName" (ngModelChange)="clearError()"
+            placeholder="{{'lastName' | language:languageService.currentLanguage}}" required />
+        <div class="error-message" *ngIf="error">{{error}}</div>
+        <button>
+            {{'signUp' | language:languageService.currentLanguage}}
+        </button>
+    </form>
+</section>
