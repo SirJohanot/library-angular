@@ -22,6 +22,7 @@ import { LanguagePipe } from './pipes/language.pipe';
 import { BookParametersComponent } from './components/book-parameters/book-parameters.component';
 import { BookComponent } from './pages/book/book.component';
 import { AuthorsPipe } from './pipes/authors.pipe';
+import { PaginationBarComponent } from './components/pagination-bar/pagination-bar.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AuthorsPipe } from './pipes/authors.pipe';
     LanguagePipe,
     BookParametersComponent,
     BookComponent,
-    AuthorsPipe
+    AuthorsPipe,
+    PaginationBarComponent
   ],
   imports: [
     BrowserModule,

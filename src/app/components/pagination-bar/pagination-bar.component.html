@@ -1,0 +1,26 @@
+<div id="pagination" class="round-bordered-subject">
+    <div>
+        <button type="button" (click)="setCurrentPage(1)">
+            |&lt;
+        </button>
+    </div>
+    <div>
+        <button type="button" (click)="setCurrentPage(currentPage-1)">
+            &lt;
+        </button>
+    </div>
+    <form (ngSubmit)="setCurrentPage(targetPage)">
+        <input type="number" id="target-page" name="target-page" min="1" [max]="maxPage" step="1"
+            [(ngModel)]="targetPage" />
+    </form>
+    <div>
+        <button type="button" (click)="setCurrentPage(currentPage+1)">
+            &gt;
+        </button>
+    </div>
+    <div>
+        <button type="button" (click)="setCurrentPage(maxPage)">
+            &gt;|
+        </button>
+    </div>
+</div>
