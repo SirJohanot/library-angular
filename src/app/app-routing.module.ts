@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AddBookComponent } from './pages/add-book/add-book.component';
+import { BookComponent } from './pages/book/book.component';
 import { BooksComponent } from './pages/books/books.component';
 import { HomeComponent } from './pages/home/home.component';
 import { OrdersComponent } from './pages/orders/orders.component';
@@ -34,6 +35,14 @@ const routes: Routes = [
   {
     path: 'books',
     component: BooksComponent,
+    canActivate: [AuthenticationGuard],
+    data: {
+      expectedRoles: ['READER', 'LIBRARIAN', 'ADMIN']
+    }
+  },
+  {
+    path: 'book/:id',
+    component: BookComponent,
     canActivate: [AuthenticationGuard],
     data: {
       expectedRoles: ['READER', 'LIBRARIAN', 'ADMIN']
