@@ -1,5 +1,13 @@
 <section id="main-content">
     <div id="main-content-centered-element">
-        books
+        <ng-container *ngFor="let book of displayedBooks; trackBy: trackBook">
+            <a *ngIf="!book.deleted" routerLink="/book/{{book.id}}">
+                <button class="round-bordered-subject block-container">
+                    <app-book-parameters [book]="book" />
+                </button>
+            </a>
+        </ng-container>
+        <app-pagination-bar *ngIf="allBooks" [allItems]="allBooks" [maxItemsPerPage]="5" [currentPage]="1"
+            (displayedItems)="setDisplayedBooks($event)" />
     </div>
 </section>

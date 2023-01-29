@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, map, NEVER } from 'rxjs';
+import { UserRoles } from 'src/app/interfaces/UserRoles';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LanguageService } from 'src/app/services/language.service';
-import { UserRoles } from 'src/app/UserRoles';
 
 @Injectable({
   providedIn: "root"

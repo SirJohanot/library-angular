@@ -12,6 +12,9 @@ export class AuthenticationInterceptor implements HttpInterceptor {
   constructor(public authenticationService: AuthenticationService, public router: Router) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    if (!this.authenticationService.hasAuthentication()) {
+      return next.handle(request);
+    }
     var login = this.authenticationService.getLogin();
     var password = this.authenticationService.getPassword();
     request = request.clone({

@@ -1,0 +1,17 @@
+<section id="main-content">
+    <div id="main-content-centered-element">
+        <div class="round-bordered-subject block-container">
+            <app-book-parameters [book]="book" />
+        </div>
+        <div class="buttons-container" *ngIf="authenticationService.hasOneOfRoles(['ADMIN'])">
+            <button class="red">
+                {{'delete' | language:languageService.currentLanguage}}
+            </button>
+            <a routerLink="/book/{{this.bookId}}/edit">
+                <button>
+                    {{'edit' | language:languageService.currentLanguage}}
+                </button>
+            </a>
+        </div>
+    </div>
+</section>

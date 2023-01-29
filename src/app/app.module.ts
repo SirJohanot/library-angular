@@ -19,6 +19,12 @@ import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.compone
 import { UsersComponent } from './pages/users/users.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LanguagePipe } from './pipes/language.pipe';
+import { BookParametersComponent } from './components/book-parameters/book-parameters.component';
+import { BookComponent } from './pages/book/book.component';
+import { AuthorsPipe } from './pipes/authors.pipe';
+import { PaginationBarComponent } from './components/pagination-bar/pagination-bar.component';
+import { BookChangesComponent } from './components/book-changes/book-changes.component';
+import { EditBookComponent } from './pages/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { LanguagePipe } from './pipes/language.pipe';
     UsersComponent,
     UnauthorizedComponent,
     HomeComponent,
-    LanguagePipe
+    LanguagePipe,
+    BookParametersComponent,
+    BookComponent,
+    AuthorsPipe,
+    PaginationBarComponent,
+    BookChangesComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,

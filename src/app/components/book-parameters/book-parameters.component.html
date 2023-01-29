@@ -1,0 +1,20 @@
+<ng-container *ngIf="book">
+    <h1>
+        {{"bookTitle" | language:languageService.currentLanguage}}: {{book.title}}
+    </h1>
+    <p>
+        {{"authors" | language:languageService.currentLanguage}}: {{book.authors | authors}}
+    </p>
+    <p>
+        {{"genre" | language:languageService.currentLanguage}}: {{book.genre.name}}
+    </p>
+    <p>
+        {{"publisher" | language:languageService.currentLanguage}}: {{book.publisher.name}}
+    </p>
+    <p>
+        {{"publishmentYear" | language:languageService.currentLanguage}}: {{book.publishmentYear}}
+    </p>
+    <p>
+        {{"inStock" | language:languageService.currentLanguage}}: {{book.amount}}
+    </p>
+</ng-container>
