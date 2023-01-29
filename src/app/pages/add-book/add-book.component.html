@@ -1,5 +1,12 @@
 <section id="main-content">
     <div id="main-content-centered-element">
-        add-book
+        <app-book-changes [book]="book" (handleBookSubmit)="handleSubmit($event)" [error]="error" />
+        <div class="buttons-container">
+            <a routerLink="/books">
+                <button class="red">{{'cancel' | language:languageService.currentLanguage}}</button>
+            </a>
+            <button type="submit" form="book-changes" class="green">{{'add' |
+                language:languageService.currentLanguage}}</button>
+        </div>
     </div>
 </section>
