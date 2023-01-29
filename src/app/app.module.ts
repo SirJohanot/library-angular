@@ -23,6 +23,8 @@ import { BookParametersComponent } from './components/book-parameters/book-param
 import { BookComponent } from './pages/book/book.component';
 import { AuthorsPipe } from './pipes/authors.pipe';
 import { PaginationBarComponent } from './components/pagination-bar/pagination-bar.component';
+import { BookChangesComponent } from './components/book-changes/book-changes.component';
+import { EditBookComponent } from './pages/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { PaginationBarComponent } from './components/pagination-bar/pagination-b
     BookParametersComponent,
     BookComponent,
     AuthorsPipe,
-    PaginationBarComponent
+    PaginationBarComponent,
+    BookChangesComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
