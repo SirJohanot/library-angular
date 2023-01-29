@@ -4,7 +4,7 @@
             <app-book-parameters [book]="book" />
         </div>
         <div class="buttons-container" *ngIf="authenticationService.hasOneOfRoles(['ADMIN'])">
-            <button class="red">
+            <button class="red" (click)="handleDelete()">
                 {{'delete' | language:languageService.currentLanguage}}
             </button>
             <a routerLink="/book/{{this.bookId}}/edit">
