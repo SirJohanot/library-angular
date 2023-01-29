@@ -1,6 +1,6 @@
 <section id="main-content">
     <div id="main-content-centered-element">
-        <app-book-changes [book]="bookDto" (handlBookSubmit)="handleSubmit($event)" [error]="error" />
+        <app-book-changes [book]="bookDto" (handleBookSubmit)="handleSubmit($event)" [error]="error" />
         <div class="buttons-container">
             <a routerLink="/book/{{this.id}}">
                 <button class="red">{{'cancel' | language:languageService.currentLanguage}}</button>
