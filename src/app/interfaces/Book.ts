@@ -5,6 +5,5 @@ export interface Book {
     genre: { name: string },
     publisher: { name: string },
     publishmentYear: number,
-    amount: number,
-    deleted: boolean
+    amount: number
 }
