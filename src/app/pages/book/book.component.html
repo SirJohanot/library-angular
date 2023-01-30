@@ -3,6 +3,8 @@
         <div class="round-bordered-subject block-container">
             <app-book-parameters [book]="book" />
         </div>
+        <app-book-order-form *ngIf="authenticationService.hasOneOfRoles(['READER']) && book && book.amount>0"
+            [bookId]="this.bookId" />
         <div class="buttons-container" *ngIf="authenticationService.hasOneOfRoles(['ADMIN'])">
             <button class="red" (click)="handleDelete()">
                 {{'delete' | language:languageService.currentLanguage}}
