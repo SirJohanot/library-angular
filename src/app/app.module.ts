@@ -25,6 +25,7 @@ import { AuthorsPipe } from './pipes/authors.pipe';
 import { PaginationBarComponent } from './components/pagination-bar/pagination-bar.component';
 import { BookChangesComponent } from './components/book-changes/book-changes.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
+import { BookOrderFormComponent } from './components/book-order-form/book-order-form.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { EditBookComponent } from './pages/edit-book/edit-book.component';
     AuthorsPipe,
     PaginationBarComponent,
     BookChangesComponent,
-    EditBookComponent
+    EditBookComponent,
+    BookOrderFormComponent
   ],
   imports: [
     BrowserModule,
