@@ -26,6 +26,7 @@ import { PaginationBarComponent } from './components/pagination-bar/pagination-b
 import { BookChangesComponent } from './components/book-changes/book-changes.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
 import { BookOrderFormComponent } from './components/book-order-form/book-order-form.component';
+import { OrderParametersComponent } from './components/order-parameters/order-parameters.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { BookOrderFormComponent } from './components/book-order-form/book-order-
     PaginationBarComponent,
     BookChangesComponent,
     EditBookComponent,
-    BookOrderFormComponent
+    BookOrderFormComponent,
+    OrderParametersComponent
   ],
   imports: [
     BrowserModule,
