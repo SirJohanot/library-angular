@@ -1,5 +1,13 @@
 <section id="main-content">
     <div id="main-content-centered-element">
-        orders
+        <ng-container *ngFor="let order of displayedOrders; trackBy: trackOrders">
+            <a routerLink="/order/{{order.id}}">
+                <button class="round-bordered-subject block-container">
+                    <app-order-parameters [order]="order" />
+                </button>
+            </a>
+        </ng-container>
+        <app-pagination-bar *ngIf="allOrders" [allItems]="allOrders" [maxItemsPerPage]="5" [currentPage]="1"
+            (displayedItems)="setDisplayedOrders($event)" />
     </div>
 </section>
