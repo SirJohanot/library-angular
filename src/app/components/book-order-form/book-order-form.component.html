@@ -1,0 +1,17 @@
+<form class="round-bordered-subject order-options-container" (submit)="handleSubmit()">
+    <p>{{'rentalType' | language:languageService.currentLanguage}}:</p>
+    <input type="radio" id="out-of-library" name="rental-type" value="OUT_OF_LIBRARY" [(ngModel)]="rentalType" />
+    <label htmlFor="out-of-library">{{'OUT_OF_LIBRARY' | language:languageService.currentLanguage}}</label>
+    <input type="radio" id="to-reading-hall" name="rental-type" value="TO_READING_HALL" [(ngModel)]="rentalType"
+        (change)="days=0" />
+    <label htmlFor="to-reading-hall">{{'TO_READING_HALL' | language:languageService.currentLanguage}}</label>
+    <p>{{'days' | language:languageService.currentLanguage}}:</p>
+    <input type="radio" id="7" name="days" value="7" [disabled]="rentalType!='OUT_OF_LIBRARY'" [(ngModel)]="days" />
+    <label htmlFor="7">7</label>
+    <input type="radio" id="14" name="days" value="14" [disabled]="rentalType!='OUT_OF_LIBRARY'" [(ngModel)]="days" />
+    <label htmlFor="14">14</label>
+    <input type="radio" id="21" name="days" value="21" [disabled]="rentalType!='OUT_OF_LIBRARY'" [(ngModel)]="days" />
+    <label htmlFor="21">21</label>
+    <div class="error-message" *ngIf="error">{{error}}</div>
+    <button>{{'order' | language:languageService.currentLanguage}}</button>
+</form>

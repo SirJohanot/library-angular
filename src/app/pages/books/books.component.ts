@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/interfaces/Book';
 
 @Component({
@@ -13,12 +13,16 @@ export class BooksComponent implements OnInit {
   displayedBooks!: Book[];
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
     this.http.get<Book[]>("/books")
-      .subscribe(books => this.allBooks = books);
+      .subscribe(books => {
+        this.allBooks = books;
+        this.ref.detectChanges()
+      });
   }
 
   setDisplayedBooks(books: Book[]): void {
