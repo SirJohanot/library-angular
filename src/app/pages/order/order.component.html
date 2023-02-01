@@ -1,0 +1,29 @@
+<section id="main-content" *ngIf="order">
+    <div id="main-content-centered-element">
+        <div class="round-bordered-subject block-container">
+            <app-order-parameters [order]="order" />
+        </div>
+        <div class="round-bordered-subject block-container">
+            <app-book-parameters [book]="order.book" />
+        </div>
+        <div class="round-bordered-subject block-container" *ngIf="authenticationService.hasOneOfRoles(['LIBRARIAN'])">
+            <app-user-parameters [user]="order.user" />
+        </div>
+        <ng-container *ngIf="order">
+            <div class="buttons-container"
+                *ngIf="authenticationService.hasOneOfRoles(['LIBRARIAN']) && order.state=='PLACED'">
+                <button class="red" (click)="handleStateChange('decline')">{{'decline' |
+                    language:languageService.currentLanguage}}</button>
+                <button class="green" (click)="handleStateChange('approve')">{{'approveOrder' |
+                    language:languageService.currentLanguage}}</button>
+            </div>
+            <div class="buttons-container"
+                *ngIf="authenticationService.hasOneOfRoles(['READER']) && (order.state=='APPROVED' || order.state=='BOOK_TAKEN')">
+                <button (click)="handleStateChange('collect')" *ngIf="order.state=='APPROVED'">{{'collectOrder' |
+                    language:languageService.currentLanguage}}</button>
+                <button (click)="handleStateChange('return')" *ngIf="order.state=='BOOK_TAKEN'">{{'returnOrder' |
+                    language:languageService.currentLanguage}}</button>
+            </div>
+        </ng-container>
+    </div>
+</section>

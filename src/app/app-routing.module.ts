@@ -6,6 +6,7 @@ import { BookComponent } from './pages/book/book.component';
 import { BooksComponent } from './pages/books/books.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
 import { HomeComponent } from './pages/home/home.component';
+import { OrderComponent } from './pages/order/order.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
@@ -60,6 +61,14 @@ const routes: Routes = [
   {
     path: 'orders',
     component: OrdersComponent,
+    canActivate: [AuthenticationGuard],
+    data: {
+      expectedRoles: ['READER', 'LIBRARIAN']
+    }
+  },
+  {
+    path: 'order/:id',
+    component: OrderComponent,
     canActivate: [AuthenticationGuard],
     data: {
       expectedRoles: ['READER', 'LIBRARIAN']

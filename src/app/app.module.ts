@@ -27,6 +27,8 @@ import { BookChangesComponent } from './components/book-changes/book-changes.com
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
 import { BookOrderFormComponent } from './components/book-order-form/book-order-form.component';
 import { OrderParametersComponent } from './components/order-parameters/order-parameters.component';
+import { OrderComponent } from './pages/order/order.component';
+import { UserParametersComponent } from './components/user-parameters/user-parameters.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { OrderParametersComponent } from './components/order-parameters/order-pa
     BookChangesComponent,
     EditBookComponent,
     BookOrderFormComponent,
-    OrderParametersComponent
+    OrderParametersComponent,
+    OrderComponent,
+    UserParametersComponent
   ],
   imports: [
     BrowserModule,
