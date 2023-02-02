@@ -1,5 +1,13 @@
 <section id="main-content">
     <div id="main-content-centered-element">
-        users
+        <ng-container *ngFor="let user of displayedUsers; trackBy: trackUsers">
+            <a routerLink="/user/{{user.id}}">
+                <button class="round-bordered-subject block-container">
+                    <app-user-parameters [user]="user" />
+                </button>
+            </a>
+        </ng-container>
+        <app-pagination-bar *ngIf="allUsers" [allItems]="allUsers" [maxItemsPerPage]="5" [currentPage]="1"
+            (displayedItems)="setDisplayedUsers($event)" />
     </div>
 </section>
