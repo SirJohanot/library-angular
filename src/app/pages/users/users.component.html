@@ -1,7 +1,7 @@
 <section id="main-content">
     <div id="main-content-centered-element">
         <ng-container *ngFor="let user of displayedUsers; trackBy: trackUsers">
-            <a routerLink="/user/{{user.id}}">
+            <a routerLink="/user/{{user.login}}">
                 <button class="round-bordered-subject block-container">
                     <app-user-parameters [user]="user" />
                 </button>
