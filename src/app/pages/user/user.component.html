@@ -1,0 +1,14 @@
+<section id="main-content" *ngIf="user">
+    <div id="main-content-centered-element">
+        <div class="round-bordered-subject block-container">
+            <app-user-parameters [user]="user" />
+        </div>
+        <div class="buttons-container" *ngIf="user.role != 'ADMIN'">
+            <button class="red" (click)="switchUserBlocked()">{{(user.blocked ? 'unblock': 'block') |
+                language:languageService.currentLanguage}}</button>
+            <a routerLink="/user/{{user.login}}/edit">
+                <button>{{'edit' |language:languageService.currentLanguage}}</button>
+            </a>
+        </div>
+    </div>
+</section>
