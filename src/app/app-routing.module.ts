@@ -5,6 +5,7 @@ import { AddBookComponent } from './pages/add-book/add-book.component';
 import { BookComponent } from './pages/book/book.component';
 import { BooksComponent } from './pages/books/books.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { HomeComponent } from './pages/home/home.component';
 import { OrderComponent } from './pages/order/order.component';
 import { OrdersComponent } from './pages/orders/orders.component';
@@ -94,6 +95,14 @@ const routes: Routes = [
   {
     path: 'user/:login',
     component: UserComponent,
+    canActivate: [AuthenticationGuard],
+    data: {
+      expectedRoles: ['ADMIN']
+    }
+  },
+  {
+    path: 'user/:login/edit',
+    component: EditUserComponent,
     canActivate: [AuthenticationGuard],
     data: {
       expectedRoles: ['ADMIN']
