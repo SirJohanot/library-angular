@@ -1,7 +1,11 @@
 <h1>{{order.book.title}} | {{order.user.login}}</h1>
-<p>{{'startDate' | language:languageService.currentLanguage}}: {{order.startDate}}</p>
-<p>{{'endDate' | language:languageService.currentLanguage}}: {{order.endDate}}</p>
-<p *ngIf="order.returnDate">{{'returnDate' | language:languageService.currentLanguage}}: {{order.returnDate}}</p>
+<p>{{'startDate' | language:languageService.currentLanguage}}: {{order.startDate | date:('dateFormat' |
+    language:languageService.currentLanguage)}}</p>
+<p>{{'endDate' | language:languageService.currentLanguage}}: {{order.endDate | date:('dateFormat' |
+    language:languageService.currentLanguage)}}</p>
+<p *ngIf="order.returnDate">{{'returnDate' | language:languageService.currentLanguage}}: {{order.returnDate |
+    date:('dateFormat' |
+    language:languageService.currentLanguage)}}</p>
 <p>{{'rentalType' | language:languageService.currentLanguage}}: {{order.rentalType |
     language:languageService.currentLanguage}}</p>
 <p>{{'rentalState' | language:languageService.currentLanguage}}: {{order.state |

@@ -33,7 +33,7 @@ export class UserComponent {
   }
 
   switchUserBlocked(): void {
-    this.http.put(`/users/${this.user.id}/switch-blocked`, {})
+    this.http.patch(`/users/${this.user.id}/switch-blocked`, {})
       .subscribe(() => this.fetchOrder());
   }
 
