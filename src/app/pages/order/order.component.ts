@@ -33,7 +33,7 @@ export class OrderComponent {
   }
 
   handleStateChange(action: string): void {
-    this.http.put(`/orders/${this.orderId}/${action}`, {})
+    this.http.patch(`/orders/${this.orderId}/${action}`, {})
       .subscribe(() => this.fetchOrder());
   }
 
