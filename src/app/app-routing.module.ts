@@ -7,6 +7,7 @@ import { BooksComponent } from './pages/books/books.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MissingComponent } from './pages/missing/missing.component';
 import { OrderComponent } from './pages/order/order.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
@@ -107,6 +108,10 @@ const routes: Routes = [
     data: {
       expectedRoles: ['ADMIN']
     }
+  },
+  {
+    path: '**',
+    component: MissingComponent
   }
 ];
 

@@ -31,6 +31,7 @@ import { OrderComponent } from './pages/order/order.component';
 import { UserParametersComponent } from './components/user-parameters/user-parameters.component';
 import { UserComponent } from './pages/user/user.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
+import { MissingComponent } from './pages/missing/missing.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
     OrderComponent,
     UserParametersComponent,
     UserComponent,
-    EditUserComponent
+    EditUserComponent,
+    MissingComponent
   ],
   imports: [
     BrowserModule,
