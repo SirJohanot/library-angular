@@ -1,10 +1,10 @@
 <section id="main-content">
     <div id="main-content-centered-element">
         <div class="container round-bordered-subject main-page-message">
-            <h1>You lack the sufficient privileges to view this page</h1>
+            <h1>{{"insufficientPrivileges" | language:languageService.currentLanguage}}</h1>
         </div>
     </div>
     <div class="buttons-container">
-        <button type="button" (click)="backClicked()">Go Back</button>
+        <button type="button" (click)="backClicked()">{{"goBack" | language:languageService.currentLanguage}}</button>
     </div>
 </section>
