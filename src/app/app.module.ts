@@ -5,33 +5,33 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BookChangesComponent } from './components/book-changes/book-changes.component';
+import { BookOrderFormComponent } from './components/book-order-form/book-order-form.component';
+import { BookParametersComponent } from './components/book-parameters/book-parameters.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { OrderParametersComponent } from './components/order-parameters/order-parameters.component';
+import { PaginationBarComponent } from './components/pagination-bar/pagination-bar.component';
+import { UserParametersComponent } from './components/user-parameters/user-parameters.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { AddBookComponent } from './pages/add-book/add-book.component';
+import { BookComponent } from './pages/book/book.component';
 import { BooksComponent } from './pages/books/books.component';
+import { EditBookComponent } from './pages/edit-book/edit-book.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
+import { HomeComponent } from './pages/home/home.component';
+import { MissingComponent } from './pages/missing/missing.component';
+import { OrderComponent } from './pages/order/order.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
-import { UsersComponent } from './pages/users/users.component';
-import { HomeComponent } from './pages/home/home.component';
-import { LanguagePipe } from './pipes/language.pipe';
-import { BookParametersComponent } from './components/book-parameters/book-parameters.component';
-import { BookComponent } from './pages/book/book.component';
-import { AuthorsPipe } from './pipes/authors.pipe';
-import { PaginationBarComponent } from './components/pagination-bar/pagination-bar.component';
-import { BookChangesComponent } from './components/book-changes/book-changes.component';
-import { EditBookComponent } from './pages/edit-book/edit-book.component';
-import { BookOrderFormComponent } from './components/book-order-form/book-order-form.component';
-import { OrderParametersComponent } from './components/order-parameters/order-parameters.component';
-import { OrderComponent } from './pages/order/order.component';
-import { UserParametersComponent } from './components/user-parameters/user-parameters.component';
 import { UserComponent } from './pages/user/user.component';
-import { EditUserComponent } from './pages/edit-user/edit-user.component';
-import { MissingComponent } from './pages/missing/missing.component';
+import { UsersComponent } from './pages/users/users.component';
+import { AuthorsPipe } from './pipes/authors.pipe';
+import { LanguagePipe } from './pipes/language.pipe';
 
 @NgModule({
   declarations: [
@@ -78,7 +78,8 @@ import { MissingComponent } from './pages/missing/missing.component';
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
       multi: true
-    }
+    },
+    LanguagePipe
   ],
   bootstrap: [AppComponent]
 })

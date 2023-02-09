@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/interfaces/User';
+import { LanguagePipe } from 'src/app/pipes/language.pipe';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LanguageService } from 'src/app/services/language.service';
 
@@ -17,6 +18,7 @@ export class UserComponent {
 
   constructor(
     public languageService: LanguageService,
+    private languagePipe: LanguagePipe,
     public authenticationService: AuthenticationService,
     private route: ActivatedRoute,
     private http: HttpClient
@@ -33,6 +35,9 @@ export class UserComponent {
   }
 
   switchUserBlocked(): void {
+    if (!window.confirm(this.languagePipe.transform(this.user.blocked ? 'unblockConfirmation' : 'blockConfirmation'))) {
+      return;
+    }
     this.http.patch(`/users/${this.user.id}/switch-blocked`, {})
       .subscribe(() => this.fetchOrder());
   }
